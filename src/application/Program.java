@@ -24,35 +24,35 @@ public class Program {
 		
 		for (int i=1; i<=n; i++) {
 			System.out.println("Shape #"+i+" data:");
-			System.out.print("Rectangle or Circle (r/c)? ");
+			System.out.print("Rectangle or Circle (R/C)? ");
 			char type = sc.next().charAt(0);
 			System.out.print("Color (BLACK/BLUE/RED): ");
-			String color = sc.nextLine();
+			Color color = Color.valueOf(sc.next());
 			sc.nextLine();
 			
-			if (type == 'r') {
+			if (type == 'R') {
 				
 				System.out.print("Width: ");
 				double width = sc.nextDouble();
 				System.out.print("Height: ");
 				double height = sc.nextDouble();
 				
-				shape.add(new Rectangle(Color.valueOf(color), width, height));
+				shape.add(new Rectangle(color, width, height));
 				
 			} else {
 				
 				System.out.print("Radius: ");
 				double radius = sc.nextDouble();
 				
-				shape.add(new Circle(Color.valueOf(color), radius));
-			}
-		
-			System.out.println();
-			System.out.println("SHAPE AREAS:");
-			for (Shape obj: shape) {
-				System.out.println(obj);
+				shape.add(new Circle(color, radius));
 			}
 
+		}
+		
+		System.out.println();
+		System.out.println("SHAPE AREAS:");
+		for (Shape obj: shape) {
+			System.out.println(obj.area());
 		}
 		
 	sc.close();
